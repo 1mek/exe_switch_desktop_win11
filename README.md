@@ -1,5 +1,7 @@
 # exe_switch_desktop_win11
 executable file to switch desktop to left or right.
+This is probably not the best way, but it works. Simply by sending the keypresses WIN+CTRL+ARROW (LEFT OR RIGHT).
+
 
 build it yourself.
 
