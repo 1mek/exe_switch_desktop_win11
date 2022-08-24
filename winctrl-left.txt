@@ -1,0 +1,26 @@
+'  SWITCH VIRTUAL DESKTOP WITH AN EXEFILE.
+'  IN POWERSHELL compile with:
+'  PS C:\Windows\Microsoft.NET\Framework\v4.0.30319> ./vbc "C:\thisfilename.txt" /out:"C:\output.exe" /target:winexe
+Imports System.Runtime.InteropServices
+Imports System.Windows.Forms
+
+Public Module SendWinKey
+
+    Const KEYEVENTF_KEYDOWN As Integer = &H0
+    Const KEYEVENTF_KEYUP As Integer = &H2
+
+    Declare Sub keybd_event Lib "User32" (ByVal bVk As Byte, ByVal bScan As Byte, ByVal dwFlags As UInteger, ByVal dwExtraInfo As UInteger)
+
+       Public Sub Main()    
+           keybd_event(CByte(Keys.LWin), 0, KEYEVENTF_KEYDOWN, 0) 'press the left Win key down
+           keybd_event(CByte(Keys.ControlKey), 0, KEYEVENTF_KEYDOWN, 0) 'press the Ctrl key down
+'keybd_event(CByte(Keys.Right), 0, KEYEVENTF_KEYDOWN, 0) 'press the RIGHT key down
+keybd_event(CByte(Keys.Left), 0, KEYEVENTF_KEYDOWN, 0) 'press the LEFT key down
+
+           keybd_event(CByte(Keys.ControlKey), 0, KEYEVENTF_KEYUP, 0) 'release the CTRL key
+           keybd_event(CByte(Keys.LWin), 0, KEYEVENTF_KEYUP, 0) 'release the left Win key
+	   'keybd_event(CByte(Keys.Right), 0, KEYEVENTF_KEYUP, 0) 'release right
+	keybd_event(CByte(Keys.Left), 0, KEYEVENTF_KEYUP, 0) 'release left
+
+       End Sub
+End Module
