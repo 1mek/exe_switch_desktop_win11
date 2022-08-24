@@ -1,3 +1,6 @@
+'  SWITCH VIRTUAL DESKTOP WITH AN EXEFILE.
+'  IN POWERSHELL compile with:
+'  PS C:\Windows\Microsoft.NET\Framework\v4.0.30319> ./vbc "C:\thisfilename.txt" /out:"C:\output.exe" /target:winexe
 Imports System.Runtime.InteropServices
 Imports System.Windows.Forms
 
